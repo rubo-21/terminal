@@ -6,16 +6,14 @@ html, body {
   padding: 0;
 }
 
-#console {
-  height: 235px;
-  width: 80%;
+#container {
   position: relative;
-  background-color: black;
-  border: 2px solid #CCC;
-  margin: 0 auto;
-  margin-top: 50px;
+  width: 80%;
+  height: auto;
+  margin: auto;
 }
 
+/* jqconsole */
 .jqconsole {
   padding: 10px;
   padding-bottom: 10px;
@@ -62,19 +60,80 @@ html, body {
 .jqconsole-composition {
   background-color: red;
 }
+/* end jqconsole */
 
 #pageTitle {
   text-align: center;
 }
 
-#input {
-  display: block;
-  width: 80%;
-  margin: auto;
+#editor {
+  position: relative;
+  width: 100%;
+  height: 250px;
   font-family: monospace;
+  margin: auto;
 }
 
+#console {
+  height: 180px;
+  width: 100%;
+  position: relative;
+  background-color: black;
+  border: 2px solid #CCC;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+/* Button styles  */
 #button {
   display: block;
-  margin: 50px auto 0;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 85px;
+  height: 30px;
+
+  /*Reset's element apperance*/
+  background: none repeat scroll 0 0 transparent;
+  border: medium none;
+  border-spacing: 0;
+  font-family: 'PT Sans Narrow',sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.42rem;
+  list-style: none outside none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0;
+
+  /* override styles */
+  background: #91E22E repeat scroll 0 0;
+  font-size: 13px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
 }
+
+#button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+#button::-moz-focus-inner {
+    padding: 0 !important;
+    border: 0 none !important;
+}
+
+/* Used within FF chrome to target CSS to specific URLs: being FF-specific,
+
+it is also useful for targeting FF-only code */
+
+@-moz-document url-prefix(http://) {
+  #button::-moz-focus-inner {
+    padding: 0 !important;
+    border: 0 none !important;
+  }
+}
+/* end Button styles  */

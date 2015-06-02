@@ -6,12 +6,16 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
   </head>
   <body>
-    <h1 id="pageTitle">Empythoned Demo</h1>
-    <textarea disabled="true" id="input" rows="8">print 'Hello World'</textarea>
-    <input disabled="true" id="button" type="button" value="loading........." />
-    <div id="console"></div>
-    <script src="lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="lib/jqconsole.js"></script>
-    <script src="js/main.js"></script>
+    <div id="container">
+      <h1 id="pageTitle">Empythoned Demo</h1>
+      <input disabled="true" id="button" type="button" value="Loading..." />
+      <pre id="editor" disabled="true">print 'Hello World'</pre>
+      <div id="console"></div>
+
+      <script src="lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+      <script src="lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+      <script src="lib/jqconsole.js"></script>
+      <script src="js/main.js"></script>
+    </div>
   </body>
 </html>

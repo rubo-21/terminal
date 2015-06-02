@@ -1,29 +1,32 @@
 $(function() {
+  var output = document.getElementById('output'),
+      button = document.getElementById('button'),
+      worker = new Worker('lib/empythoned/worker.js'),
+      loaded = false,
+      handler = function (e) {
+        if (!loaded) {
+          loaded = true;
+          button.value = "Execute";
+          editor.setReadOnly(false);
+          button.disabled = false;
+          return;
+        }
+        // output.value += e.data;
+        jqconsole.Write(e.data);
+      };
+
   /***** Empythoned  *****/
-
-  var input = document.getElementById('input')
-    , output = document.getElementById('output')
-    , button = document.getElementById('button')
-    , worker = new Worker('empythoned/worker.js')
-    , loaded = false
-    , handler = function (e) {
-      if (!loaded) {
-        loaded = true;
-        button.value = "Execute";
-        input.disabled = false;
-        button.disabled = false;
-        return;
-      }
-     // output.value += e.data;
-      jqconsole.Write(e.data);
-    };
-
-
   worker.addEventListener('message', handler, false);
 
   button.onclick = function() {
-    worker.postMessage(input.value);
+    worker.postMessage(editor.getValue());
   };
+
+  /***** ACE Editor *****/
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/twilight");
+  editor.getSession().setMode("ace/mode/python");
+  editor.setReadOnly(true);
 
   /***** jqconsole  *****/
 
